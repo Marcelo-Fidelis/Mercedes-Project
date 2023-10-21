@@ -2,6 +2,8 @@ package com.marcelofidelis.mercedes_project.domain;
 
 import java.util.UUID;
 
+import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicket;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,12 +14,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name = "ticket")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Table(name = "ticket")
 public class Ticket {
+
+    public Ticket(DtoTicket dto){
+        this.setTitle(dto.title());
+        this.setSector(dto.sector());
+        this.setType(dto.type());
+        this.setStatus(dto.status());
+        this.setOwner(dto.owner());
+        this.setTicketLog(dto.ticketLog());
+        this.setBlocked(dto.isBlocked());
+        this.setPriority(dto.priority());
+        
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) 
@@ -28,34 +42,34 @@ public class Ticket {
 
     //TODO : Change this to a Sector Object
     @Column(nullable = false)
-    private int sector;
+    private Integer sector;
 
     //TODO : Change this to a Type Object
     @Column(nullable = false)
-    private int type;
+    private Integer type;
 
     //TODO : Change this to a Status Object
     @Column(nullable = false)
-    private int status;
+    private Integer status;
 
     //TODO : Change this to a SystemUser Object
     @Column(nullable = false)
-    private int owner;
+    private Integer owner;
 
     //TODO : Change this to a SystemUser Object
-    @Column(nullable = false)
-    private int attendant;
+    
+    private Integer attendant;
 
     //TODO : Change this to a TicketHistory Object
     @Column(nullable = false)
-    private int ticketHistory;
+    private Integer ticketLog;
 
     @Column(nullable = false)
     private boolean isBlocked;
 
     //TODO : Change this to a Priority Object
     @Column(nullable = false)
-    private int priority;
+    private Integer priority;
 
     
 }

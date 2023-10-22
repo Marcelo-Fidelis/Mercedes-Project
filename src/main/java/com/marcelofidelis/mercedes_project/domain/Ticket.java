@@ -21,17 +21,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "ticket")
 public class Ticket {
 
-    public Ticket(DtoTicket dto){
-        this.setTitle(dto.title());
-        this.setSector(dto.sector());
-        this.setType(dto.type());
-        this.setStatus(dto.status());
-        this.setOwner(dto.owner());
-        this.setTicketLog(dto.ticketLog());
-        this.setBlocked(dto.isBlocked());
-        this.setPriority(dto.priority());
-        
-    }
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) 
@@ -71,5 +61,15 @@ public class Ticket {
     @Column(nullable = false)
     private Integer priority;
 
-    
+    public Ticket(DtoTicket dto){
+        this.setTitle(dto.title());
+        this.setSector(dto.sector());
+        this.setType(dto.type());
+        this.setStatus(dto.status());
+        this.setOwner(dto.owner());
+        this.setTicketLog(dto.ticketLog());
+        this.setBlocked(dto.isBlocked());
+        this.setPriority(dto.priority());
+        
+    }
 }

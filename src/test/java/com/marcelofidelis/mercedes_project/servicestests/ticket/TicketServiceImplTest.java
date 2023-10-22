@@ -54,7 +54,6 @@ public class TicketServiceImplTest {
     public void getTicketByTitle_ShouldReturnTicketByTitle() throws Exception{
         String title = "title test";
         Ticket found = ticketService.getTicketByTitle(title);
-        System.out.println(found.getId());
         Assertions.assertEquals("title test", found.getTitle());
         
     }
@@ -64,6 +63,12 @@ public class TicketServiceImplTest {
         var uuid =UUID.fromString("69abfb52-70f0-11ee-b962-0242ac120002");
         Ticket found = ticketService.getTicketById(uuid);
         Assertions.assertEquals(uuid, found.getId());
+    }
+    @Test
+    public void isTicketBlocked_ShouldReturnTrue(){
+         var dtoTicket = new DtoTicket("title test", 1, 1, 1, 200,1,1, true, 1);
+         Ticket ticket = new Ticket(dtoTicket);
+         Assertions.assertTrue(ticketService.isTicketBlocked(ticket));
     }
 
    

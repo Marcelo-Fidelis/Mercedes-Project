@@ -31,4 +31,9 @@ public class TicketServiceImpl implements ITicketService {
         Ticket found = ticketRepository.findById(uuid).orElseThrow(() -> new Exception("Erro"));
         return found;
     }
+
+    @Override
+    public boolean isTicketBlocked(Ticket ticket) {
+       return ticket.isBlocked();
+    }
 }

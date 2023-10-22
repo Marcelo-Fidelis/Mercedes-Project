@@ -17,6 +17,8 @@ public interface ITicketService {
 
     public void updateTicketAttendent(int attendant);
 
-    public Ticket getTicketById(UUID uuid) throws Exception;     
+    public Ticket getTicketById(UUID uuid) throws Exception;
+
+    public boolean isTicketBlocked(Ticket ticket);     
    
 }

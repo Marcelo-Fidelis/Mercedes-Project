@@ -3,6 +3,7 @@ package com.marcelofidelis.mercedes_project.domain;
 import java.util.UUID;
 
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicket;
+import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -74,5 +75,12 @@ public class Ticket {
         this.setBlocked(dto.isBlocked());
         this.setPriority(dto.priority());
         
+    }
+
+    public void ticketUpdate(DtoTicketUpdate dto){
+        this.setTitle(dto.title());
+        this.setType(dto.type());
+        this.setAttendant(dto.attendant());
+        this.setPriority(dto.priority());
     }
 }

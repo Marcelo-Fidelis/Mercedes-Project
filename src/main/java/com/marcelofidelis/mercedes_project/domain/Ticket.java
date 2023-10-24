@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,7 +35,7 @@ public class Ticket {
 
     //TODO : Change this to a Department Object
     @Column(nullable = false)
-    private Integer department;
+    private Department department;
 
     //TODO : Change this to a Type Object
     @Column(nullable = false)

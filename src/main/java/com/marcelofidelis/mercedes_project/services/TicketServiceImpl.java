@@ -1,12 +1,12 @@
 package com.marcelofidelis.mercedes_project.services;
 
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.marcelofidelis.mercedes_project.domain.Ticket;
+import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 import com.marcelofidelis.mercedes_project.repositories.TicketRepository;
 
 @Service
@@ -18,12 +18,18 @@ public class TicketServiceImpl implements ITicketService {
     @Override
     public Ticket getTicketByTitle(String title) throws Exception {
         Ticket found = ticketRepository.findByTitle(title).orElseThrow(() -> new Exception("Erro"));
+        System.out.println();
         return found;
     }
 
     @Override
-    public void updateTicketAttendent(int attendant) {
+    public Ticket updateTicket(Ticket ticket, DtoTicketUpdate ticketUpdated) throws Exception {
         
+        if (!(isTicketBlocked(ticket))) {
+            ticket.ticketUpdate(ticketUpdated);
+            return ticket;
+        }
+        throw new Exception("Ticket bloquado");       
     }
 
     @Override
@@ -34,6 +40,6 @@ public class TicketServiceImpl implements ITicketService {
 
     @Override
     public boolean isTicketBlocked(Ticket ticket) {
-       return ticket.isBlocked();
+        return ticket.isBlocked();
     }
 }

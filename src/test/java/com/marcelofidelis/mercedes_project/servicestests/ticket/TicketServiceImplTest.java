@@ -9,19 +9,17 @@ import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.marcelofidelis.mercedes_project.domain.Ticket;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicket;
+import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 import com.marcelofidelis.mercedes_project.repositories.TicketRepository;
 import com.marcelofidelis.mercedes_project.services.ITicketService;
 
@@ -69,6 +67,18 @@ public class TicketServiceImplTest {
          var dtoTicket = new DtoTicket("title test", 1, 1, 1, 200,1,1, true, 1);
          Ticket ticket = new Ticket(dtoTicket);
          Assertions.assertTrue(ticketService.isTicketBlocked(ticket));
+    }
+
+    @Test
+    public void updateTicketAttendent_IsBlocked_False_ShouldUpdateTheAttendant() throws Exception{
+        var dtoTicket = new DtoTicket("title test", 1, 1, 1, 200,255,1, false, 1);
+        Ticket ticket = new Ticket(dtoTicket);
+        var ticketUpdate = new DtoTicketUpdate(null, null, 304, 5);
+        var ticketUpdated = ticketService.updateTicket(ticket, ticketUpdate);
+        Assertions.assertEquals(ticket.getTitle(), ticketUpdated.getTitle());
+        Assertions.assertEquals(304, ticketUpdated.getAttendant());
+        Assertions.assertEquals(5, ticketUpdated.getPriority());
+        
     }
 
    

@@ -18,7 +18,6 @@ public class TicketServiceImpl implements ITicketService {
     @Override
     public Ticket getTicketByTitle(String title) throws Exception {
         Ticket found = ticketRepository.findByTitle(title).orElseThrow(() -> new Exception("Erro"));
-        System.out.println();
         return found;
     }
 

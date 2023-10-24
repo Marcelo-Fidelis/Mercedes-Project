@@ -34,9 +34,9 @@ public class Ticket {
     @Column(nullable = false, length = 255)
     private String title;
 
-    //TODO : Change this to a Sector Object
+    //TODO : Change this to a Department Object
     @Column(nullable = false)
-    private Integer sector;
+    private Integer department;
 
     //TODO : Change this to a Type Object
     @Column(nullable = false)
@@ -67,7 +67,7 @@ public class Ticket {
 
     public Ticket(DtoTicket dto){
         this.setTitle(dto.title());
-        this.setSector(dto.sector());
+        this.setDepartment(dto.department());
         this.setType(dto.type());
         this.setStatus(dto.status());
         this.setOwner(dto.owner());

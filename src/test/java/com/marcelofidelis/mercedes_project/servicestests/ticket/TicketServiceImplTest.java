@@ -3,15 +3,16 @@ package com.marcelofidelis.mercedes_project.servicestests.ticket;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+
 
 import com.marcelofidelis.mercedes_project.domain.Department;
 import com.marcelofidelis.mercedes_project.domain.Ticket;
@@ -20,7 +21,7 @@ import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 import com.marcelofidelis.mercedes_project.repositories.TicketRepository;
 import com.marcelofidelis.mercedes_project.services.ITicketService;
 
-@RunWith(SpringRunner.class)
+
 @ContextConfiguration(classes = TicketServiceImplTestCC.class)
 public class TicketServiceImplTest {
 
@@ -30,13 +31,12 @@ public class TicketServiceImplTest {
     @MockBean
     private TicketRepository ticketRepository;
 
-    @Before
+    @BeforeEach
     public void setup() {
         var department = new Department();
         var dtoTicket = new DtoTicket("title test", 1, department, 1, 200, 1, 1, false, 1);
         var uuid = UUID.fromString("69abfb52-70f0-11ee-b962-0242ac120002");
         Ticket ticket = new Ticket(dtoTicket);
-        ticket.setId(uuid);
         Mockito.when(ticketRepository.findById(ticket.getId()))
                 .thenReturn(Optional.of(ticket));
 
@@ -48,6 +48,7 @@ public class TicketServiceImplTest {
     public void getTicketByTitle_ShouldReturnTicketByTitle() throws Exception {
         String title = "title test";
         Ticket found = ticketService.getTicketByTitle(title);
+        
         Assertions.assertEquals("title test", found.getTitle());
 
     }

@@ -4,16 +4,14 @@ package com.marcelofidelis.mercedes_project.servicestests.department;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import com.marcelofidelis.mercedes_project.domain.Department;
+import org.springframework.test.context.ContextConfiguration;
+
+
+
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 import com.marcelofidelis.mercedes_project.services.DepartmentServiceImpl;

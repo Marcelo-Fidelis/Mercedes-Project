@@ -30,4 +30,8 @@ public class DepartmentServiceImpl implements IDepartmentService{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'updateDepartment'");
     }
+
+    public Department getDepartmentById(Integer id) throws Exception {
+        return departmentRepository.findById(id).orElseThrow(() -> new Exception("Erro"));
+    }
 }

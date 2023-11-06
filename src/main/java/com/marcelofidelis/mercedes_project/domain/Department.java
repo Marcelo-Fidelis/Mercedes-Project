@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Department {
+public class Department implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

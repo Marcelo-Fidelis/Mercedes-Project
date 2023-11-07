@@ -4,13 +4,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ContextConfiguration;
 
 
@@ -19,33 +18,31 @@ import com.marcelofidelis.mercedes_project.domain.Ticket;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicket;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 import com.marcelofidelis.mercedes_project.repositories.TicketRepository;
-import com.marcelofidelis.mercedes_project.services.ITicketService;
+import com.marcelofidelis.mercedes_project.services.TicketServiceImpl;
 
 
 @ContextConfiguration(classes = TicketServiceImplTestCC.class)
+@ExtendWith(MockitoExtension.class)
+
 public class TicketServiceImplTest {
 
-    @Autowired
-    private ITicketService ticketService;
+  
 
-    @MockBean
+    @Mock
     private TicketRepository ticketRepository;
 
-    @BeforeEach
-    public void setup() {
-        var department = new Department();
-        var dtoTicket = new DtoTicket("title test", 1, department, 1, 200, 1, 1, false, 1);
-        var uuid = UUID.fromString("69abfb52-70f0-11ee-b962-0242ac120002");
-        Ticket ticket = new Ticket(dtoTicket);
-        Mockito.when(ticketRepository.findById(ticket.getId()))
-                .thenReturn(Optional.of(ticket));
-
-        Mockito.when(ticketRepository.findByTitle(ticket.getTitle()))
-                .thenReturn(Optional.of(ticket));
-    }
+    @InjectMocks
+    private TicketServiceImpl ticketService;
 
     @Test
     public void getTicketByTitle_ShouldReturnTicketByTitle() throws Exception {
+        var department = new Department();
+        var dtoTicket = new DtoTicket("title test", 1, department, 1, 200, 1, 1, false, 1);
+        Ticket ticket = new Ticket(dtoTicket);
+        
+
+        Mockito.when(ticketRepository.findByTitle(ticket.getTitle()))
+                .thenReturn(Optional.of(ticket));
         String title = "title test";
         Ticket found = ticketService.getTicketByTitle(title);
         
@@ -55,7 +52,13 @@ public class TicketServiceImplTest {
 
     @Test
     public void getTicketById_ShouldReturnTicketById() throws Exception {
+        var department = new Department();
+        var dtoTicket = new DtoTicket("title test", 1, department, 1, 200, 1, 1, false, 1);
+        Ticket ticket = new Ticket(dtoTicket);
         var uuid = UUID.fromString("69abfb52-70f0-11ee-b962-0242ac120002");
+        ticket.setId(uuid);
+        Mockito.when(ticketRepository.findById(ticket.getId()))
+                .thenReturn(Optional.of(ticket));
         Ticket found = ticketService.getTicketById(uuid);
         Assertions.assertEquals(uuid, found.getId());
     }

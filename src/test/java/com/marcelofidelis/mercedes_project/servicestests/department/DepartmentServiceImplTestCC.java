@@ -4,14 +4,14 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.marcelofidelis.mercedes_project.services.DepartmentServiceImpl;
-import com.marcelofidelis.mercedes_project.services.IDepartmentService;
+import com.marcelofidelis.mercedes_project.services.DepartmentService;
 
 
 
 @TestConfiguration
 public class DepartmentServiceImplTestCC {
     @Bean
-    public IDepartmentService departmentServiceImpl(){
+    public DepartmentService departmentServiceImpl(){
         return new DepartmentServiceImpl();
 
     }

@@ -10,7 +10,7 @@ import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 import com.marcelofidelis.mercedes_project.repositories.TicketRepository;
 
 @Service
-public class TicketServiceImpl implements ITicketService {
+public class TicketServiceImpl implements TicketService {
 
     @Autowired
     TicketRepository ticketRepository;

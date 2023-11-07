@@ -9,7 +9,7 @@ import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartmentUpdate;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 
 @Service
-public class DepartmentServiceImpl implements IDepartmentService{
+public class DepartmentServiceImpl implements DepartmentService{
     @Autowired
     DepartmentRepository departmentRepository;
 

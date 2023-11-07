@@ -4,7 +4,7 @@ import com.marcelofidelis.mercedes_project.domain.Department;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartmentUpdate;
 
-public interface IDepartmentService {
+public interface DepartmentService {
 
     Department createDepartment(DtoDepartment dto);
     Department deleteDepartment(Integer id);

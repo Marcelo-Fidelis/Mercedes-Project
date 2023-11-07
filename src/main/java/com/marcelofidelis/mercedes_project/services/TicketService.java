@@ -14,7 +14,7 @@ import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 
 
 @Service
-public interface ITicketService {
+public interface TicketService {
     public Ticket getTicketByTitle(String title) throws Exception;
 
     public Ticket updateTicket(Ticket ticket,DtoTicketUpdate ticketUpdate) throws Exception;

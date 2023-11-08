@@ -21,8 +21,6 @@ import com.marcelofidelis.mercedes_project.services.DepartmentServiceImpl;
 
 @ContextConfiguration(classes = DepartmentServiceImplTestCC.class)
 @ExtendWith(MockitoExtension.class)
-@MockitoSettings(strictness= Strictness.LENIENT)
-@TestInstance(Lifecycle.PER_CLASS)
 public class DepartmentServiceImplTest {
 
     @InjectMocks
@@ -31,11 +29,6 @@ public class DepartmentServiceImplTest {
     @Mock
     private DepartmentRepository departmentRepository;
 
-    @BeforeAll
-    public void setup() {
-        var dto = new DtoDepartment("Test title", "This is a test description");
-        Department department = new Department(dto);
-    }
 
     @Test
     public void createDepartment_ShouldCreateDepartment() {

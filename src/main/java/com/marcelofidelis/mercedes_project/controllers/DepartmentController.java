@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marcelofidelis.mercedes_project.domain.Department;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
-import com.marcelofidelis.mercedes_project.services.DepartmentServiceImpl;
+import com.marcelofidelis.mercedes_project.services.DepartmentService;
 
 
 @RestController
@@ -21,18 +21,18 @@ import com.marcelofidelis.mercedes_project.services.DepartmentServiceImpl;
 public class DepartmentController {
     
     @Autowired
-    DepartmentServiceImpl departmentService;
+    DepartmentService departmentService;
 
     @PostMapping
     public ResponseEntity<Department> createDepartment(@RequestBody DtoDepartment dto){
         
-        return ResponseEntity.ok().body(departmentService.createDepartment(dto));
+        return ResponseEntity.ok().body(departmentService.create(dto));
     }
 
     @GetMapping
     public ResponseEntity<Department> getDepartmentById(@PathVariable (value = "id") Integer id) throws Exception{
         
-        return ResponseEntity.ok().body(departmentService.getDepartmentById(id));
+        return ResponseEntity.ok().body(departmentService.get(id));
     }
 
     

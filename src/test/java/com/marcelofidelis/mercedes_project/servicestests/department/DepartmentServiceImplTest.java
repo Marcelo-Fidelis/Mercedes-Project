@@ -17,14 +17,14 @@ import org.springframework.test.context.ContextConfiguration;
 import com.marcelofidelis.mercedes_project.domain.Department;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
-import com.marcelofidelis.mercedes_project.services.DepartmentServiceImpl;
+import com.marcelofidelis.mercedes_project.services.DepartmentService;
 
 @ContextConfiguration(classes = DepartmentServiceImplTestCC.class)
 @ExtendWith(MockitoExtension.class)
 public class DepartmentServiceImplTest {
 
     @InjectMocks
-    private DepartmentServiceImpl departmentService;
+    private DepartmentService departmentService;
 
     @Mock
     private DepartmentRepository departmentRepository;
@@ -33,7 +33,7 @@ public class DepartmentServiceImplTest {
     @Test
     public void createDepartment_ShouldCreateDepartment() {
         var dtoDepartment = new DtoDepartment("Test title", "This is a test description");
-        departmentService.createDepartment(dtoDepartment);
+        departmentService.create(dtoDepartment);
 
     }
 }

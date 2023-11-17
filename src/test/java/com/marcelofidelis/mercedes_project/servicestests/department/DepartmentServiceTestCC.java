@@ -8,7 +8,7 @@ import com.marcelofidelis.mercedes_project.services.DepartmentService;
 
 
 @TestConfiguration
-public class DepartmentServiceImplTestCC {
+public class DepartmentServiceTestCC {
     @Bean
     public DepartmentService departmentService(){
         return new DepartmentService();

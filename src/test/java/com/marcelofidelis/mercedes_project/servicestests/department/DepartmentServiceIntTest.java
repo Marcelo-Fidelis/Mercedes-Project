@@ -10,8 +10,8 @@ import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 import com.marcelofidelis.mercedes_project.services.DepartmentService;
 
 @DataJpaTest
-@ContextConfiguration(classes = DepartmentServiceImplTestCC.class)
-public class DepartmentServiceImplIntTest {
+@ContextConfiguration(classes = DepartmentServiceTestCC.class)
+public class DepartmentServiceIntTest {
 
     @Autowired
     private DepartmentRepository departmentRepository;

@@ -19,9 +19,9 @@ import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 import com.marcelofidelis.mercedes_project.services.DepartmentService;
 
-@ContextConfiguration(classes = DepartmentServiceImplTestCC.class)
+@ContextConfiguration(classes = DepartmentServiceTestCC.class)
 @ExtendWith(MockitoExtension.class)
-public class DepartmentServiceImplTest {
+public class DepartmentServiceTest {
 
     @InjectMocks
     private DepartmentService departmentService;

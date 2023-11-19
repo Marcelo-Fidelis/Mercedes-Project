@@ -7,7 +7,7 @@ import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 
 @Service
-public class DepartmentService implements ServiceStructure<Integer, DtoDepartment, Department> {
+public class DepartmentService implements ServiceTemplate<Integer, DtoDepartment, Department> {
     @Autowired
     DepartmentRepository departmentRepository;
 

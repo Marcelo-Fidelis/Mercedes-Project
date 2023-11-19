@@ -1,5 +1,6 @@
 package com.marcelofidelis.mercedes_project.services;
 
+import com.marcelofidelis.mercedes_project.domain.Department;
 
 /*
  * I -> A object id
@@ -7,7 +8,7 @@ package com.marcelofidelis.mercedes_project.services;
  * O -> The object
  */
 
-public interface ServiceStructure <I,D,O> {
+public interface ServiceTemplate <I,D,O extends Department> {
     
     O create(D dto);
     O get (I id);

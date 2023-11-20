@@ -3,6 +3,7 @@ package com.marcelofidelis.mercedes_project.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.marcelofidelis.mercedes_project.domain.Department;
+import com.marcelofidelis.mercedes_project.domain.DepartmentMapper;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 
@@ -18,8 +19,10 @@ public class DepartmentService implements ServiceTemplate<Integer, DtoDepartment
 
     @Override
     public Department create(DtoDepartment dto) {
-        var department = new Department(dto);
+        var department = DepartmentMapper.INSTANCE.toDepartment(dto);
         return departmentRepository.save(department);
+        // var department = new Department(dto);
+        // return departmentRepository.save(department);
     }
 
     @Override

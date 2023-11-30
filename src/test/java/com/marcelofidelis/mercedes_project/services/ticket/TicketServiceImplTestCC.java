@@ -1,4 +1,4 @@
-package com.marcelofidelis.mercedes_project.servicestests.ticket;
+package com.marcelofidelis.mercedes_project.services.ticket;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;

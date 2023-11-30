@@ -1,4 +1,4 @@
-package com.marcelofidelis.mercedes_project.servicestests.ticket;
+package com.marcelofidelis.mercedes_project.services.ticket;
 
 import java.util.Optional;
 import java.util.UUID;

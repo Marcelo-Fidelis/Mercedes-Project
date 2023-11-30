@@ -1,4 +1,4 @@
-package com.marcelofidelis.mercedes_project.servicestests.department;
+package com.marcelofidelis.mercedes_project.services.department;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

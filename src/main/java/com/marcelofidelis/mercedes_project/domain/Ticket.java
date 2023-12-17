@@ -2,6 +2,7 @@ package com.marcelofidelis.mercedes_project.domain;
 
 import java.util.UUID;
 
+import com.marcelofidelis.mercedes_project.domain.department.Department;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicket;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 

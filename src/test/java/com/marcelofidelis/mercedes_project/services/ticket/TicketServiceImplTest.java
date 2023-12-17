@@ -12,9 +12,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ContextConfiguration;
 
-
-import com.marcelofidelis.mercedes_project.domain.Department;
 import com.marcelofidelis.mercedes_project.domain.Ticket;
+import com.marcelofidelis.mercedes_project.domain.department.Department;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicket;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoTicketUpdate;
 import com.marcelofidelis.mercedes_project.repositories.TicketRepository;

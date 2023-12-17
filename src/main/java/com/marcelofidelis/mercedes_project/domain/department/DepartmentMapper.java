@@ -1,4 +1,4 @@
-package com.marcelofidelis.mercedes_project.domain;
+package com.marcelofidelis.mercedes_project.domain.department;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

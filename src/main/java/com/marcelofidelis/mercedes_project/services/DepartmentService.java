@@ -2,8 +2,9 @@ package com.marcelofidelis.mercedes_project.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.marcelofidelis.mercedes_project.domain.Department;
-import com.marcelofidelis.mercedes_project.domain.DepartmentMapper;
+
+import com.marcelofidelis.mercedes_project.domain.department.Department;
+import com.marcelofidelis.mercedes_project.domain.department.DepartmentMapper;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 

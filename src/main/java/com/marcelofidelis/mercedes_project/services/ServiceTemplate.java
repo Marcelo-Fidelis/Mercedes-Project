@@ -1,6 +1,6 @@
 package com.marcelofidelis.mercedes_project.services;
 
-import com.marcelofidelis.mercedes_project.domain.Department;
+import com.marcelofidelis.mercedes_project.domain.department.Department;
 
 /*
  * I -> A object id

@@ -1,4 +1,4 @@
-package com.marcelofidelis.mercedes_project.domain;
+package com.marcelofidelis.mercedes_project.domain.department;
 
 import java.io.Serializable;
 

@@ -14,7 +14,7 @@ import org.mockito.quality.Strictness;
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.marcelofidelis.mercedes_project.domain.Department;
+import com.marcelofidelis.mercedes_project.domain.department.Department;
 import com.marcelofidelis.mercedes_project.domain.dtos.DtoDepartment;
 import com.marcelofidelis.mercedes_project.repositories.DepartmentRepository;
 import com.marcelofidelis.mercedes_project.services.DepartmentService;

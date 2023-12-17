@@ -1,6 +1,6 @@
 package com.marcelofidelis.mercedes_project.domain.dtos;
 
-import com.marcelofidelis.mercedes_project.domain.Department;
+import com.marcelofidelis.mercedes_project.domain.department.Department;
 
 public record DtoTicket(
 String title, 
